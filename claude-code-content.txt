@@ -94,7 +94,7 @@ CONFIG:
     "If you encounter any issues, please email the Claude Code support DL: ClaudeCodeSupport_DL@8451.com"
   ]
 }
-TIP: If the ~/.claude/ folder does not exist yet, create it. The ~ symbol means your home folder (the one with your name on it).
+TIP: If the ~/.claude/ folder does not exist yet, create it. The ~ symbol means your home folder (this should be your EUID).
 TIP: The .claude folder is hidden by default in Finder. To reveal hidden folders, open Finder and press Command (⌘) + Shift + Period (.).
 
 ---STEP---
