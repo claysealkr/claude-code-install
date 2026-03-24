@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install Claude Code on Mac</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #6e6e73;
+    }
+
+    .step {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      counter-reset: steps;
+    }
+
+    .step-number {
+      background: #0071e3;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      counter-increment: steps;
+    }
+
+    .step-number::before {
+      content: counter(steps);
+    }
+
+    .step-header h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    ol, ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      background: #1d1d1f;
+      color: #f5f5f7;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-family: "SF Mono", "Menlo", monospace;
+      font-size: 0.95rem;
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .copy-btn {
+      background: #3a3a3c;
+      color: #f5f5f7;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover {
+      background: #636366;
+    }
+
+    .copy-btn.copied {
+      background: #30d158;
+      color: white;
+    }
+
+    .tip {
+      background: #f0f7ff;
+      border-left: 4px solid #0071e3;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: #1d1d1f;
+    }
+
+    .tip strong {
+      color: #0071e3;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f2f2f7;
+      color: #6e6e73;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.85rem;
+      font-family: "SF Mono", "Menlo", monospace;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      color: #6e6e73;
+      font-size: 0.9rem;
+    }
+
+    kbd {
+      background: #e5e5ea;
+      border-radius: 5px;
+      padding: 2px 7px;
+      font-size: 0.9rem;
+      font-family: -apple-system, sans-serif;
+      border: 1px solid #c7c7cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Install Claude Code on Mac</h1>
+      <p>A step-by-step guide — no experience needed</p>
+    </header>
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Open Terminal</h2>
+      </div>
+      <ol>
+        <li>Press <kbd>Command</kbd> + <kbd>Space</kbd> to open Spotlight Search</li>
+        <li>Type <strong>Terminal</strong> and press <kbd>Return</kbd></li>
+        <li>A window with a text prompt will appear — this is normal</li>
+      </ol>
+      <div class="tip"><strong>Tip:</strong> Terminal is a built-in Mac app. You're not breaking anything by opening it.</div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Check What You Already Have</h2>
+      </div>
+      <p style="margin-bottom: 12px;">You may already have the software you need. Run this command in Terminal to check:</p>
+      <div class="code-block">
+        <span id="nodecheck">node --version</span>
+        <button class="copy-btn" onclick="copyText('nodecheck', this)">Copy</button>
+      </div>
+      <p style="margin: 16px 0 12px;">Then find your result below:</p>
+      <div style="border: 2px solid #30d158; border-radius: 10px; padding: 16px; margin-bottom: 12px;">
+        <p><strong style="color: #30d158;">Got a version number?</strong> (e.g. <span class="badge">v20.0.0</span>)</p>
+        <p style="margin-top: 8px;">You already have Node.js. Skip ahead to <strong>Install Claude Code</strong>.</p>
+      </div>
+      <div style="border: 2px solid #ff9f0a; border-radius: 10px; padding: 16px;">
+        <p><strong style="color: #ff9f0a;">Got an error?</strong> Run this to check if you have Homebrew:</p>
+        <div class="code-block" style="margin: 10px 0;">
+          <span id="brewcheck">brew --version</span>
+          <button class="copy-btn" onclick="copyText('brewcheck', this)">Copy</button>
+        </div>
+        <ul>
+          <li><strong>Got a version number?</strong> Run <span class="badge">brew install node</span> then skip to <strong>Install Claude Code</strong>.</li>
+          <li><strong>Got another error?</strong> Continue to the next step to install Node.js.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Install Node.js <span style="font-size: 0.9rem; font-weight: 400; color: #6e6e73;">(skip if you already have it)</span></h2>
+      </div>
+      <ol>
+        <li>Go to <strong>https://nodejs.org</strong></li>
+        <li>Click the big green <strong>"Download Node.js (LTS)"</strong> button</li>
+        <li>Open the downloaded <span class="badge">.pkg</span> file</li>
+        <li>Follow the installer — click Continue, Agree, and Install</li>
+        <li>Enter your Mac password if prompted, then click Close when done</li>
+      </ol>
+      <div class="tip"><strong>Note:</strong> LTS stands for "Long Term Support" — it's the most stable version.</div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Install Claude Code</h2>
+      </div>
+      <p style="margin-bottom: 8px;">Copy and paste this command into Terminal, then press <kbd>Return</kbd>:</p>
+      <div class="code-block">
+        <span id="cmd1">npm install -g @anthropic-ai/claude-code</span>
+        <button class="copy-btn" onclick="copyText('cmd1', this)">Copy</button>
+      </div>
+      <div class="tip"><strong>Note:</strong> A lot of text will scroll by — that's normal. Wait until the prompt reappears before continuing.</div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Get an API Key</h2>
+      </div>
+      <ol>
+        <li>Navigate to the <a href="https://ai-model-proxy.aks-ur-prd-internal.8451.cloud/ui/" target="_blank">KrAIG UI</a></li>
+        <li>Select the <strong>"+ Create New Key"</strong> button</li>
+        <li>Fill in the following fields:
+          <ul style="margin-top: 8px;">
+            <li><strong>Owned by:</strong> "You"</li>
+            <li><strong>Team:</strong> You can skip this field, it is not required for Claude Code usage</li>
+            <li><strong>Key Name:</strong> <span class="badge">claude-code-{firstname}-{lastname}</span>, for example: <span class="badge">claude-code-josh-boldt</span></li>
+            <li><strong>Models:</strong> "All Team Models"</li>
+            <li>Click the <strong>"Optional Settings"</strong> bar and fill in:
+              <ul style="margin-top: 8px;">
+                <li><strong>Tags:</strong> <span class="badge">claude-code-wave-2</span> (type in then hit Enter on your keyboard if not selectable from the dropdown)</li>
+                <li><strong>Under "Key Lifecycle" — Expire Key:</strong> <span class="badge">365d</span> (365 days)</li>
+              </ul>
+            </li>
+            <li>Click <strong>"Create Key"</strong> at the bottom</li>
+          </ul>
+        </li>
+        <li>Your key should appear in a popup</li>
+        <li>Select the <strong>"Copy API Key"</strong> button and save your API Key to reference later. It will not be shown to you again.</li>
+        <li>If needed, you can regenerate your API key in case it gets compromised or you lose it. Search for your key alias. After clicking your key, the next page has a button to regenerate.</li>
+      </ol>
+      <div class="tip"><strong>Important:</strong> The key starts with <span class="badge">sk-ant-...</span> — save it somewhere safe. You won't be able to see it again.</div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Configure Claude Code</h2>
+      </div>
+      <ol>
+        <li>Open Terminal if it is not already open</li>
+        <li>Open (or create) the file <span class="badge">~/.claude/settings.json</span> in a text editor</li>
+        <li>Paste in the configuration below, replacing <span class="badge">&lt;replace_with_your_apikey&gt;</span> (including the angle brackets) with the API key you created in the previous step:</li>
+      </ol>
+      <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px;">
+        <button class="copy-btn" onclick="copyText('config', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
+        <span id="config">{
+  "apiKeyHelper": "echo &lt;replace_with_your_apikey&gt;",
+  "autoUpdatesChannel": "stable",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://ai-model-proxy.aks-ur-prd-internal.8451.cloud",
+    "DISABLE_AUTOUPDATER": 1,
+    "DISABLE_ERROR_REPORTING": 1,
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": 1
+  },
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "WebSearch"
+    ]
+  },
+  "includeCoAuthoredBy": true,
+  "companyAnnouncements": [
+    "Welcome to Claude Code for 84.51º and Kroger! Please remember not to share your API key with others.",
+    "If you encounter any issues, please email the Claude Code support DL: ClaudeCodeSupport_DL@8451.com"
+  ]
+}</span>
+      </div>
+      <ol start="4">
+        <li>Save the file</li>
+      </ol>
+      <div class="tip"><strong>Tip:</strong> If the <span class="badge">~/.claude/</span> folder does not exist yet, create it. The <span class="badge">~</span> symbol means your home folder (the one with your name on it).</div>
+      <div class="tip"><strong>Note:</strong> The <span class="badge">.claude</span> folder is hidden by default in Finder. To reveal hidden folders, open Finder and press <kbd>&#8984;</kbd> + <kbd>Shift</kbd> + <kbd>.</kbd></div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Set Up SSL Certificates</h2>
+      </div>
+      <p style="margin-bottom: 16px;">Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to MCP servers.</p>
+      <ol>
+        <li>Copy the script below:</li>
+      </ol>
+      <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px; font-size: 0.8rem; line-height: 1.6;">
+        <button class="copy-btn" onclick="copyText('certscript', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
+        <span id="certscript">#!/bin/bash
+
+function setup-certs() {
+  local cert_path
+  cert_path="$HOME/.certs/all.pem"
+  local cert_dir
+  cert_dir=$(dirname "${cert_path}")
+  [[ -d "${cert_dir}" ]] || mkdir -p "${cert_dir}"
+
+  security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain >"${cert_path}"
+  security find-certificate -a -p /Library/Keychains/System.keychain >>"${cert_path}"
+
+  export GIT_SSL_CAINFO="${cert_path}"
+  export AWS_CA_BUNDLE="${cert_path}"
+  export NODE_EXTRA_CA_CERTS="${cert_path}"
+
+  if [ ! -f "$HOME/.kroger-certs-set" ]; then
+    npm config set -g cafile "${cert_path}"
+    npm config set -g strict-ssl true
+    yarn config set cafile "${cert_path}" -g
+    yarn config set strict-ssl true -g
+  fi
+
+  touch $HOME/.kroger-certs-set
+}
+
+export NODE_OPTIONS=--use-openssl-ca
+
+setup-certs</span>
+      </div>
+      <ol start="2">
+        <li>Open Terminal and paste the script, then press <kbd>Return</kbd></li>
+        <li>To make this permanent, add the following line to your <span class="badge">~/.zshrc</span> file:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="certenv">export NODE_EXTRA_CA_CERTS=~/.certs/all.pem</span>
+            <button class="copy-btn" onclick="copyText('certenv', this)">Copy</button>
+          </div>
+        </li>
+        <li>Close and reopen Terminal to pick up the new settings</li>
+      </ol>
+      <div class="tip"><strong>Note:</strong> You only need to run this script once. The <span class="badge">~/.zshrc</span> line ensures the certificate path is remembered every time you open a new Terminal window.</div>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Start Claude Code</h2>
+      </div>
+      <p style="margin-bottom: 8px;">In Terminal, type this and press <kbd>Return</kbd>:</p>
+      <div class="code-block">
+        <span id="cmd2">claude</span>
+        <button class="copy-btn" onclick="copyText('cmd2', this)">Copy</button>
+      </div>
+      <p>The first time you run it, it will ask for your API key. Paste the key from Step 4 and press <kbd>Return</kbd>.</p>
+    </div>
+
+    <!-- After that -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number" style="background: #30d158; counter-increment: none;">&#10003;</div>
+        <h2>Using Claude Code Going Forward</h2>
+      </div>
+      <ol>
+        <li>Open <strong>Terminal</strong> (<kbd>Command</kbd> + <kbd>Space</kbd>, type Terminal)</li>
+        <li>Type <span class="badge">cd </span> (with a space), then <strong>drag your project folder</strong> into the Terminal window and press <kbd>Return</kbd></li>
+        <li>Type <span class="badge">claude</span> and press <kbd>Return</kbd></li>
+      </ol>
+      <div class="tip"><strong>Tip:</strong> You only need to install everything once. Next time, just open Terminal and type <span class="badge">claude</span>.</div>
+    </div>
+
+    <footer>
+      Claude Code by Anthropic &nbsp;&middot;&nbsp; claude.ai/claude-code
+    </footer>
+  </div>
+
+  <script>
+    function copyText(id, btn) {
+      const el = document.getElementById(id);
+      const text = el.innerText || el.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
