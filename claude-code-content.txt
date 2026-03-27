@@ -70,7 +70,7 @@ TIP: The key starts with sk-... — save it somewhere safe. You won't be able to
 TITLE: Configure Claude Code
 STEPS:
 - Open Terminal if it is not already open
-- Open (or create) the file ~/.claude/settings.json in a text editor
+- Open (or create) the file ~/.claude/settings.json in TextEdit. Make sure the file is a Plain Text Document, not a Rich Text Document (.rtf).
 - Paste in the configuration below, replacing <replace_with_your_apikey> (including the angle brackets) with the API key you created in the previous step
 - Save the file
 CONFIG:
