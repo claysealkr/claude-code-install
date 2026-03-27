@@ -62,7 +62,7 @@ STEPS:
 - Your key should appear in a popup
 - Select the “Copy API Key” button and save your API Key to reference later. It will not be shown to you again.
 - If needed, you can regenerate your API key in case it gets compromised or you lose it. Search for your key alias. After clicking your key, the next page has a button to regenerate.
-TIP: The key starts with sk-ant-... — save it somewhere safe. You won't be able to see it again.
+TIP: The key starts with sk-... — save it somewhere safe. You won't be able to see it again.
 
 ---STEP---
 TITLE: Configure Claude Code
