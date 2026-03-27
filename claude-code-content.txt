@@ -47,6 +47,7 @@ TIP: A lot of text will scroll by — that's normal. Wait until the prompt reapp
 
 ---STEP---
 TITLE: Get an API Key
+INTRO: An API key is a unique password that lets Claude Code authenticate as you when making requests to the AI model. You'll generate one through the KrAIG UI — Kroger's internal portal for managing AI access.
 STEPS:
 - Navigate to the KrAIG UI
 - Select the “+ Create New Key” button
