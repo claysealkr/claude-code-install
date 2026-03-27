@@ -424,6 +424,31 @@ setup-certs</span>
       <div class="tip"><strong>Tip:</strong> To verify it's working, start Claude Code — you should see <span class="badge">figma</span> listed under connected MCP servers at startup.</div>
     </div>
 
+    <!-- Step 10 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Create a GitHub Account <span style="font-size: 0.9rem; font-weight: 400; color: #6e6e73;">(optional)</span></h2>
+      </div>
+      <p style="margin-bottom: 16px;">GitHub is where developers store and share code. Claude Code works well with GitHub for managing projects.</p>
+      <ol>
+        <li>Go to <strong>github.com/signup</strong></li>
+        <li>Enter your email address, create a password, and choose a username</li>
+        <li>Complete the verification steps and confirm your email address</li>
+        <li>Once logged in, run the following commands in Terminal to connect git on your Mac to your account (replace the values with your own):
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="gitname">git config --global user.name "Your Name"</span>
+            <button class="copy-btn" onclick="copyText('gitname', this)">Copy</button>
+          </div>
+          <div class="code-block">
+            <span id="gitemail">git config --global user.email "you@example.com"</span>
+            <button class="copy-btn" onclick="copyText('gitemail', this)">Copy</button>
+          </div>
+        </li>
+      </ol>
+      <div class="tip"><strong>Tip:</strong> Use the same email address you signed up with so your commits are linked to your account.</div>
+    </div>
+
     <!-- After that -->
     <div class="step">
       <div class="step-header">

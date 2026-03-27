@@ -165,6 +165,18 @@ CONFIG:
 }
 TIP: To verify it's working, start Claude Code — you should see "figma" listed under connected MCP servers at startup.
 
+---STEP---
+TITLE: Create a GitHub Account (Optional)
+INTRO: GitHub is where developers store and share code. Claude Code works well with GitHub for managing projects.
+STEPS:
+- Go to https://github.com/signup
+- Enter your email address, create a password, and choose a username
+- Complete the verification steps and confirm your email address
+- Once logged in, run the following commands in Terminal to connect git on your Mac to your account (replace the values in quotes with your own):
+COMMAND: git config --global user.name "Your Name"
+COMMAND2: git config --global user.email "you@example.com"
+TIP: Use the same email address you signed up with so your commits are linked to your account.
+
 ---FINAL---
 TITLE: Using Claude Code Going Forward
 STEPS:
