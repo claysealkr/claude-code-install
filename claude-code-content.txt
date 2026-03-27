@@ -170,11 +170,15 @@ TITLE: Create a GitHub Account (Optional)
 INTRO: GitHub is where developers store and share code. Claude Code works well with GitHub for managing projects.
 STEPS:
 - Go to https://github.com/signup
-- Enter your email address, create a password, and choose a username
+- Enter your Kroger email address, create a password, and choose a username
 - Complete the verification steps and confirm your email address
 - Once logged in, run the following commands in Terminal to connect git on your Mac to your account (replace the values in quotes with your own):
 COMMAND: git config --global user.name "Your Name"
 COMMAND2: git config --global user.email "you@example.com"
+- Download GitHub Desktop for a visual interface to manage your code:
+  - Go to https://desktop.github.com and click "Download for macOS"
+  - Open the downloaded file and drag GitHub Desktop to your Applications folder
+  - Open GitHub Desktop and sign in with your GitHub account
 TIP: Use the same email address you signed up with so your commits are linked to your account.
 
 ---FINAL---
