@@ -142,6 +142,29 @@ INTRO: In Terminal, type this and press Return:
 COMMAND: claude
 BODY: The first time you run it, it will ask for your API key. Paste the key from the previous step and press Return.
 
+---STEP---
+TITLE: Connect the Figma MCP Server (Optional)
+INTRO: Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.
+STEPS:
+- Go to figma.com → click your profile icon (top right) → Settings → Security → scroll to Personal access tokens → Generate new token
+- Give it a name (e.g. claude-code) and copy the token — it will not be shown again
+- Open (or create) the file ~/.claude/mcp.json in a text editor
+- Paste in the configuration below, replacing <replace_with_your_figma_token> (including the angle brackets) with your token
+- Save the file and restart Claude Code
+CONFIG:
+{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "<replace_with_your_figma_token>"
+      }
+    }
+  }
+}
+TIP: To verify it's working, start Claude Code — you should see "figma" listed under connected MCP servers at startup.
+
 ---FINAL---
 TITLE: Using Claude Code Going Forward
 STEPS:

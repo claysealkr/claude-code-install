@@ -391,6 +391,39 @@ setup-certs</span>
       <p>The first time you run it, it will ask for your API key. Paste the key from Step 4 and press <kbd>Return</kbd>.</p>
     </div>
 
+    <!-- Step 9 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Connect the Figma MCP Server <span style="font-size: 0.9rem; font-weight: 400; color: #6e6e73;">(optional)</span></h2>
+      </div>
+      <p style="margin-bottom: 16px;">Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.</p>
+      <ol>
+        <li>Go to <strong>figma.com</strong> → click your profile icon (top right) → <strong>Settings</strong> → <strong>Security</strong> → scroll to <strong>Personal access tokens</strong> → <strong>Generate new token</strong></li>
+        <li>Give it a name (e.g. <span class="badge">claude-code</span>) and copy the token — it will not be shown again</li>
+        <li>Open (or create) the file <span class="badge">~/.claude/mcp.json</span> in a text editor</li>
+        <li>Paste in the configuration below, replacing <span class="badge">&lt;replace_with_your_figma_token&gt;</span> (including the angle brackets) with your token:</li>
+      </ol>
+      <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px;">
+        <button class="copy-btn" onclick="copyText('mcpconfig', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
+        <span id="mcpconfig">{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "&lt;replace_with_your_figma_token&gt;"
+      }
+    }
+  }
+}</span>
+      </div>
+      <ol start="5">
+        <li>Save the file and restart Claude Code</li>
+      </ol>
+      <div class="tip"><strong>Tip:</strong> To verify it's working, start Claude Code — you should see <span class="badge">figma</span> listed under connected MCP servers at startup.</div>
+    </div>
+
     <!-- After that -->
     <div class="step">
       <div class="step-header">
