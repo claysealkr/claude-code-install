@@ -30,6 +30,7 @@ BRANCH_NO: Got an error? Run this to check if you have Homebrew: brew --version
 
 ---STEP---
 TITLE: Install Node.js (skip if you already have it)
+INTRO: Node.js is a runtime that lets you run JavaScript outside of a browser. Claude Code is built on it, so it needs to be installed on your machine.
 STEPS:
 - Go to https://nodejs.org
 - Click the big green "Download Node.js (LTS)" button
