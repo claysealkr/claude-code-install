@@ -104,7 +104,9 @@ TITLE: Set Up SSL Certificates
 INTRO: Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to MCP servers.
 STEPS:
 - Copy the script below and paste it into Terminal, then press Return
-- To make this permanent, add this line to your ~/.zshrc file (create it if it doesn't exist): export NODE_EXTRA_CA_CERTS=~/.certs/all.pem
+- To make this permanent, add this line to your ~/.zshrc file:
+  - If the file doesn't exist, run this to create it and open it in TextEdit: touch ~/.zshrc && open -e ~/.zshrc
+  - Add this line to the file, then save: export NODE_EXTRA_CA_CERTS=~/.certs/all.pem
 - Close and reopen Terminal to pick up the new settings
 SCRIPT:
 ls $HOME/.certs/

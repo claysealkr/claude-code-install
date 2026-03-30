@@ -350,11 +350,21 @@ export NODE_OPTIONS=--use-openssl-ca</span>
       </div>
       <ol start="2">
         <li>Open Terminal and paste the script, then press <kbd>Return</kbd></li>
-        <li>To make this permanent, add the following line to your <span class="badge">~/.zshrc</span> file (create it if it doesn't exist):
-          <div class="code-block" style="margin-top: 10px;">
-            <span id="certenv">export NODE_EXTRA_CA_CERTS=~/.certs/all.pem</span>
-            <button class="copy-btn" onclick="copyText('certenv', this)">Copy</button>
-          </div>
+        <li>To make this permanent, add the following line to your <span class="badge">~/.zshrc</span> file:
+          <ul style="margin-top: 8px;">
+            <li>If the file doesn't exist, run this to create it and open it in TextEdit:
+              <div class="code-block" style="margin-top: 10px;">
+                <span id="zshrcopen">touch ~/.zshrc && open -e ~/.zshrc</span>
+                <button class="copy-btn" onclick="copyText('zshrcopen', this)">Copy</button>
+              </div>
+            </li>
+            <li>Add this line to the file, then save:
+              <div class="code-block" style="margin-top: 10px;">
+                <span id="certenv">export NODE_EXTRA_CA_CERTS=~/.certs/all.pem</span>
+                <button class="copy-btn" onclick="copyText('certenv', this)">Copy</button>
+              </div>
+            </li>
+          </ul>
         </li>
         <li>Close and reopen Terminal to pick up the new settings</li>
       </ol>
