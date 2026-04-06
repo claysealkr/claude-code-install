@@ -394,7 +394,8 @@ export NODE_OPTIONS=--use-openssl-ca</span>
       <p style="margin-bottom: 16px;">Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.</p>
       <ol>
         <li>Go to <strong>figma.com</strong> → click your profile icon (top right) → <strong>Settings</strong> → <strong>Security</strong> → scroll to <strong>Personal access tokens</strong> → <strong>Generate new token</strong></li>
-        <li>Give it a name (e.g. <span class="badge">claude-code</span>) and copy the token — it will not be shown again</li>
+        <li>Give it a name (e.g. <span class="badge">claude-code</span>), set an expiration duration (note the date so you know when to renew it), and check all the permission boxes</li>
+        <li>Copy the token — it will not be shown again</li>
         <li>Open (or create) the file <span class="badge">~/.claude/mcp.json</span> in a text editor</li>
         <li>Paste in the configuration below, replacing <span class="badge">&lt;replace_with_your_figma_token&gt;</span> (including the angle brackets) with your token:</li>
       </ol>
