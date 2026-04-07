@@ -50,6 +50,8 @@ TITLE: Configure Claude Code
 STEPS:
 - Open Terminal if it is not already open
 - Open (or create) the file ~/.claude/settings.json in TextEdit. Make sure the file is a Plain Text Document, not a Rich Text Document (.rtf).
+TIP: If the ~/.claude/ folder does not exist yet, create it. The ~ symbol means your home folder (this should be your EUID).
+TIP: The .claude folder is hidden by default in Finder. To reveal hidden folders, open Finder and press Command (⌘) + Shift + Period (.).
 - Paste in the configuration below, replacing <replace_with_your_apikey> (including the angle brackets) with the API key you created in the previous step
 - Save the file
 CONFIG:
@@ -75,8 +77,6 @@ CONFIG:
     "If you encounter any issues, please email the Claude Code support DL: ClaudeCodeSupport_DL@8451.com"
   ]
 }
-TIP: If the ~/.claude/ folder does not exist yet, create it. The ~ symbol means your home folder (this should be your EUID).
-TIP: The .claude folder is hidden by default in Finder. To reveal hidden folders, open Finder and press Command (⌘) + Shift + Period (.).
 
 ---STEP---
 TITLE: Set Up SSL Certificates
