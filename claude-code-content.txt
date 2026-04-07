@@ -109,6 +109,7 @@ BODY: The first time you run it, it will ask for your API key. Paste the key fro
 TITLE: Connect the Figma MCP Server (Optional)
 INTRO: Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.
 STEPS:
+- This step requires Node.js. If you don't have it, open Terminal and run: brew install node
 - Go to figma.com → click your profile icon (top right) → Settings → Security → scroll to Personal access tokens → Generate new token
 - Give it a name (e.g. claude-code), set an expiration duration (note the date so you know when to renew it), and check all the permission boxes
 - Copy the token — it will not be shown again
