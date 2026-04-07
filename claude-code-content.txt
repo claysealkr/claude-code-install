@@ -20,6 +20,13 @@ STEPS:
 TIP: Terminal is a built-in Mac app. You're not breaking anything by opening it.
 
 ---STEP---
+TITLE: Install Homebrew
+INTRO: Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Copy and paste this command into Terminal, then press Return:
+COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+BODY: Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.
+TIP: If you already have Homebrew, this command will just confirm it. Either way, continue to the next step.
+
+---STEP---
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
 COMMAND: curl -fsSL https://claude.ai/install.sh | bash

@@ -193,6 +193,21 @@
     <div class="step">
       <div class="step-header">
         <div class="step-number"></div>
+        <h2>Install Homebrew</h2>
+      </div>
+      <p style="margin-bottom: 8px;">Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Copy and paste this command into Terminal, then press <kbd>Return</kbd>:</p>
+      <div class="code-block">
+        <span id="brewinstall">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span>
+        <button class="copy-btn" onclick="copyText('brewinstall', this)">Copy</button>
+      </div>
+      <p style="margin-top: 12px;">Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.</p>
+      <div class="tip"><strong>Tip:</strong> If you already have Homebrew, this command will just confirm it. Either way, continue to the next step.</div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
         <h2>Install Claude Code</h2>
       </div>
       <p style="margin-bottom: 8px;">Copy and paste this command into Terminal, then press <kbd>Return</kbd>:</p>
