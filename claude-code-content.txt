@@ -20,13 +20,6 @@ STEPS:
 TIP: Terminal is a built-in Mac app. You're not breaking anything by opening it.
 
 ---STEP---
-TITLE: Install Homebrew
-INTRO: Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Copy and paste this command into Terminal, then press Return:
-COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-BODY: Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.
-TIP: If you already have Homebrew, this command will just confirm it. Either way, continue to the next step.
-
----STEP---
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
 COMMAND: curl -fsSL https://claude.ai/install.sh | bash
@@ -113,6 +106,13 @@ COMMAND: claude
 BODY: The first time you run it, it will ask for your API key. Paste the key from the previous step and press Return.
 
 ---STEP---
+TITLE: Install Homebrew
+INTRO: Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Copy and paste this command into Terminal, then press Return:
+COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+BODY: Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.
+TIP: If you already have Homebrew, this command will just confirm it. Either way, continue to the next step.
+
+---STEP---
 TITLE: Connect the Figma MCP Server (Optional)
 INTRO: Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.
 STEPS:
@@ -135,7 +135,6 @@ CONFIG:
     }
   }
 }
-TIP: This step requires Node.js. If you don't have it, install it first by running: brew install node
 TIP: To verify it's working, start Claude Code — you should see "figma" listed under connected MCP servers at startup.
 
 ---STEP---
