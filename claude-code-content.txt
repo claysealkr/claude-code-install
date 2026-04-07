@@ -23,7 +23,7 @@ TIP: Most of the time, we use apps to interact with our computer — they're a f
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
 COMMAND: curl -fsSL https://claude.ai/install.sh | bash
-TIP: A lot of text will scroll by — that's normal. Wait until the prompt reappears before continuing.
+TIP: A lot of text will scroll by — that's normal. Wait until a new line appears where you can type again — it will look something like username@machine ~ % — before continuing.
 
 ---STEP---
 TITLE: Get an API Key
