@@ -17,7 +17,7 @@ STEPS:
 - Press Command + Space to open Spotlight Search
 - Type Terminal and press Return
 - A window with a text prompt will appear — this is normal
-TIP: Terminal is a built-in Mac app. You're not breaking anything by opening it.
+TIP: Most of the time, we use apps to interact with our computer — they're a friendly layer that makes things easier. Terminal skips that layer and lets you talk to your computer directly. It's more powerful, but also more literal: you have to tell it exactly what to do.
 
 ---STEP---
 TITLE: Install Claude Code
