@@ -156,8 +156,9 @@ TIP: Use the same email address you signed up with so your commits are linked to
 TITLE: Using Claude Code Going Forward
 STEPS:
 - Open Terminal (Command + Space, type Terminal)
-- Type cd (with a space), then drag your project folder into the Terminal window and press Return
 - Type claude and press Return
+- If you're continuing work on an existing project, just tell Claude what you'd like to work on — for example, "I want to work on the deliveryops project"
+- If you're starting something new or need Claude to read files directly, navigate to your project folder first: type cd (with a space), drag the folder into the Terminal window, and press Return — then type claude
 TIP: You only need to install everything once. Next time, just open Terminal and type claude.
 
 ---FOOTER---
