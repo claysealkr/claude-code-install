@@ -20,29 +20,9 @@ STEPS:
 TIP: Terminal is a built-in Mac app. You're not breaking anything by opening it.
 
 ---STEP---
-TITLE: Check What You Already Have
-INTRO: You may already have the software you need. Run this command in Terminal to check:
-COMMAND: node --version
-BRANCH_YES: Got a version number? (e.g. v20.0.0) — You already have Node.js. Skip ahead to Install Claude Code.
-BRANCH_NO: Got an error? Run this to check if you have Homebrew: brew --version
-  - Got a version number? Run "brew install node" then skip to Install Claude Code.
-  - Got another error? Continue to the next step to install Node.js.
-
----STEP---
-TITLE: Install Node.js (skip if you already have it)
-INTRO: Node.js is a runtime that lets you run JavaScript outside of a browser. Claude Code is built on it, so it needs to be installed on your machine.
-STEPS:
-- Go to https://nodejs.org
-- Click the big green "Download Node.js (LTS)" button
-- Open the downloaded .pkg file
-- Follow the installer — click Continue, Agree, and Install
-- Enter your Mac password if prompted, then click Close when done
-TIP: LTS stands for "Long Term Support" — it's the most stable version.
-
----STEP---
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
-COMMAND: npm install -g @anthropic-ai/claude-code
+COMMAND: curl -fsSL https://claude.ai/install.sh | bash
 TIP: A lot of text will scroll by — that's normal. Wait until the prompt reappears before continuing.
 
 ---STEP---
@@ -117,9 +97,6 @@ security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.cer
 export GIT_SSL_CAINFO=$HOME/.certs/all.pem
 export AWS_CA_BUNDLE=$HOME/.certs/all.pem
 export NODE_EXTRA_CA_CERTS=$HOME/.certs/all.pem
-npm config set -g cafile $HOME/.certs/all.pem
-npm config set -g strict-ssl true
-export NODE_OPTIONS=--use-openssl-ca
 TIP: You only need to run this script once. The ~/.zshrc line ensures the certificate path is remembered every time you open a new Terminal window.
 
 ---STEP---
@@ -150,6 +127,7 @@ CONFIG:
     }
   }
 }
+TIP: This step requires Node.js. If you don't have it, install it first by running: brew install node
 TIP: To verify it's working, start Claude Code — you should see "figma" listed under connected MCP servers at startup.
 
 ---STEP---
