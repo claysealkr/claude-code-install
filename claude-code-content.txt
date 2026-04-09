@@ -23,7 +23,7 @@ TIP: Most of the time, we use apps to interact with our computer — they're a f
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
 COMMAND: curl -fsSL https://claude.ai/install.sh | bash
-TIP: A lot of text will scroll by — that's normal. Wait until a new line appears where you can type again — it will look something like username@machine ~ % — before continuing.
+TIP: A lot of text will scroll by — that's normal. Also... it may look like it's doing nothing. Be patient. Wait until a new line appears where you can type again — it will look something like username@machine ~ % — before continuing.
 
 ---STEP---
 TITLE: Get an API Key
@@ -102,7 +102,6 @@ TIP: You only need to run this script once. The ~/.zshrc line ensures the certif
 TITLE: Start Claude Code
 INTRO: In Terminal, type this and press Return:
 COMMAND: claude
-BODY: The first time you run it, it will ask for your API key. Paste the key from the previous step and press Return.
 
 ---STEP---
 TITLE: Install Homebrew
