@@ -204,14 +204,26 @@
           </div>
         </li>
         <li>Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.</li>
+        <li>Confirm Homebrew installed correctly:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="brewversion">brew --version</span>
+            <button class="copy-btn" onclick="copyText('brewversion', this)">Copy</button>
+          </div>
+        </li>
         <li>Then install Node.js:
           <div class="code-block" style="margin-top: 10px;">
             <span id="nodeinstall">brew install node</span>
             <button class="copy-btn" onclick="copyText('nodeinstall', this)">Copy</button>
           </div>
         </li>
+        <li>Confirm Node.js installed correctly:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="nodeversion">node --version</span>
+            <button class="copy-btn" onclick="copyText('nodeversion', this)">Copy</button>
+          </div>
+        </li>
       </ol>
-      <div class="tip"><strong>Tip:</strong> If you already have Homebrew or Node.js, these commands will just confirm it. Either way, continue to the next step.</div>
+      <div class="tip"><strong>Tip:</strong> Both commands should print a version number. If you already have Homebrew or Node.js, the install commands will just confirm it.</div>
     </div>
 
     <!-- Step 2 -->

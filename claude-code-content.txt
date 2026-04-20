@@ -26,9 +26,13 @@ STEPS:
 - Copy and paste this command into Terminal to install Homebrew, then press Return:
 COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 - Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.
+- Confirm Homebrew installed correctly:
+COMMAND: brew --version
 - Then install Node.js:
 COMMAND: brew install node
-TIP: If you already have Homebrew or Node.js, these commands will just confirm it. Either way, continue to the next step.
+- Confirm Node.js installed correctly:
+COMMAND: node --version
+TIP: Both commands should print a version number. If you already have Homebrew or Node.js, the install commands will just confirm it.
 
 ---STEP---
 TITLE: Install Claude Code
