@@ -118,27 +118,14 @@ COMMAND: claude
 
 ---STEP---
 TITLE: Connect the Figma MCP Server (Optional)
-INTRO: Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.
+INTRO: Claude Code can connect to Figma to read and implement designs directly. The easiest way is via the official Figma plugin.
 STEPS:
-- Go to figma.com → click your profile icon (top right) → Settings → Security → scroll to Personal access tokens → Generate new token
-- Give it a name (e.g. claude-code), set an expiration duration (note the date so you know when to renew it), and check all the permission boxes
-- Copy the token — it will not be shown again
-- Open (or create) the file ~/.claude/mcp.json in a text editor
-- Paste in the configuration below, replacing <replace_with_your_figma_token> (including the angle brackets) with your token
-- Save the file and restart Claude Code
-CONFIG:
-{
-  "mcpServers": {
-    "figma": {
-      "command": "npx",
-      "args": ["-y", "figma-developer-mcp", "--stdio"],
-      "env": {
-        "FIGMA_API_KEY": "<replace_with_your_figma_token>"
-      }
-    }
-  }
-}
-TIP: To verify it's working, start Claude Code — you should see "figma" listed under connected MCP servers at startup.
+- In Terminal, run: claude plugin install figma@claude-plugins-official
+- Start a new Claude Code session: claude
+- Type /mcp in Claude Code, select "figma", then choose "Authenticate"
+- A browser window will open — click "Allow Access"
+- Type /mcp again to confirm — you should see: Authentication successful. Connected to figma
+NOTE: If the plugin install doesn't work, try the manual method: claude mcp add --transport http figma https://mcp.figma.com/mcp — then follow steps 2–5 above.
 
 ---STEP---
 TITLE: Create a GitHub Account (Optional)

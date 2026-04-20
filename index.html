@@ -400,32 +400,31 @@
         <div class="step-number"></div>
         <h2>Connect the Figma MCP Server <span style="font-size: 0.9rem; font-weight: 400; color: #6e6e73;">(optional)</span></h2>
       </div>
-      <p style="margin-bottom: 16px;">Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.</p>
+      <p style="margin-bottom: 16px;">Claude Code can connect to Figma to read and implement designs directly. The easiest way is via the official Figma plugin.</p>
       <ol>
-        <li>Go to <strong>figma.com</strong> → click your profile icon (top right) → <strong>Settings</strong> → <strong>Security</strong> → scroll to <strong>Personal access tokens</strong> → <strong>Generate new token</strong></li>
-        <li>Give it a name (e.g. <span class="badge">claude-code</span>), set an expiration duration (note the date so you know when to renew it), and check all the permission boxes</li>
-        <li>Copy the token — it will not be shown again</li>
-        <li>Open (or create) the file <span class="badge">~/.claude/mcp.json</span> in a text editor</li>
-        <li>Paste in the configuration below, replacing <span class="badge">&lt;replace_with_your_figma_token&gt;</span> (including the angle brackets) with your token:</li>
+        <li>In Terminal, run:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="figmaplugin">claude plugin install figma@claude-plugins-official</span>
+            <button class="copy-btn" onclick="copyText('figmaplugin', this)">Copy</button>
+          </div>
+        </li>
+        <li>Start a new Claude Code session:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="figmaclaude">claude</span>
+            <button class="copy-btn" onclick="copyText('figmaclaude', this)">Copy</button>
+          </div>
+        </li>
+        <li>Type <span class="badge">/mcp</span> in Claude Code, select <strong>figma</strong>, then choose <strong>Authenticate</strong></li>
+        <li>A browser window will open — click <strong>Allow Access</strong></li>
+        <li>Type <span class="badge">/mcp</span> again to confirm — you should see: <em>Authentication successful. Connected to figma</em></li>
       </ol>
-      <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px;">
-        <button class="copy-btn" onclick="copyText('mcpconfig', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
-        <span id="mcpconfig">{
-  "mcpServers": {
-    "figma": {
-      "command": "npx",
-      "args": ["-y", "figma-developer-mcp", "--stdio"],
-      "env": {
-        "FIGMA_API_KEY": "&lt;replace_with_your_figma_token&gt;"
-      }
-    }
-  }
-}</span>
+      <div class="tip"><strong>If the plugin install doesn't work:</strong> Try the manual method instead. In Terminal, run:
+        <div class="code-block" style="margin-top: 10px; overflow: hidden;">
+          <span id="figmamcp" style="overflow-x: auto; white-space: nowrap; min-width: 0;">claude mcp add --transport http figma https://mcp.figma.com/mcp</span>
+          <button class="copy-btn" onclick="copyText('figmamcp', this)" style="flex-shrink: 0;">Copy</button>
+        </div>
+        Then follow steps 2–5 above.
       </div>
-      <ol start="6">
-        <li>Save the file and restart Claude Code</li>
-      </ol>
-      <div class="tip"><strong>Tip:</strong> To verify it's working, start Claude Code — you should see <span class="badge">figma</span> listed under connected MCP servers at startup.</div>
     </div>
 
     <!-- Step 10 -->
