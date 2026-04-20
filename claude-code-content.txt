@@ -20,6 +20,17 @@ STEPS:
 NOTE: Most of the time, we use apps to interact with our computer — they're a friendly layer that makes things easier. Terminal skips that layer and lets you talk to your computer directly. It's more powerful, but also more literal: you have to tell it exactly what to do.
 
 ---STEP---
+TITLE: Install Homebrew and Node.js
+INTRO: Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Node.js is also required for some optional features like the Figma integration.
+STEPS:
+- Copy and paste this command into Terminal to install Homebrew, then press Return:
+COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+- Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.
+- Then install Node.js:
+COMMAND: brew install node
+TIP: If you already have Homebrew or Node.js, these commands will just confirm it. Either way, continue to the next step.
+
+---STEP---
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
 COMMAND: curl -fsSL https://claude.ai/install.sh | bash
@@ -102,17 +113,9 @@ INTRO: In Terminal, type this and press Return:
 COMMAND: claude
 
 ---STEP---
-TITLE: Install Homebrew
-INTRO: Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Copy and paste this command into Terminal, then press Return:
-COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-BODY: Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.
-TIP: If you already have Homebrew, this command will just confirm it. Either way, continue to the next step.
-
----STEP---
 TITLE: Connect the Figma MCP Server (Optional)
 INTRO: Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.
 STEPS:
-- This step requires Node.js. If you don't have it, open Terminal and run: brew install node
 - Go to figma.com → click your profile icon (top right) → Settings → Security → scroll to Personal access tokens → Generate new token
 - Give it a name (e.g. claude-code), set an expiration duration (note the date so you know when to renew it), and check all the permission boxes
 - Copy the token — it will not be shown again

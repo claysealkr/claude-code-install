@@ -189,6 +189,31 @@
       <div class="tip"><strong>Note:</strong> Most of the time, we use apps to interact with our computer — they're a friendly layer that makes things easier. Terminal skips that layer and lets you talk to your computer directly. It's more powerful, but also more literal: you have to tell it exactly what to do.</div>
     </div>
 
+    <!-- Step: Homebrew + Node -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-number"></div>
+        <h2>Install Homebrew and Node.js</h2>
+      </div>
+      <p style="margin-bottom: 16px;">Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Node.js is also required for some optional features like the Figma integration.</p>
+      <ol>
+        <li>Copy and paste this command into Terminal to install Homebrew, then press <kbd>Return</kbd>:
+          <div class="code-block" style="overflow: hidden; margin-top: 10px;">
+            <span id="brewinstall" style="overflow-x: auto; white-space: nowrap; min-width: 0;">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span>
+            <button class="copy-btn" onclick="copyText('brewinstall', this)" style="flex-shrink: 0;">Copy</button>
+          </div>
+        </li>
+        <li>Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.</li>
+        <li>Then install Node.js:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="nodeinstall">brew install node</span>
+            <button class="copy-btn" onclick="copyText('nodeinstall', this)">Copy</button>
+          </div>
+        </li>
+      </ol>
+      <div class="tip"><strong>Tip:</strong> If you already have Homebrew or Node.js, these commands will just confirm it. Either way, continue to the next step.</div>
+    </div>
+
     <!-- Step 2 -->
     <div class="step">
       <div class="step-header">
@@ -355,21 +380,6 @@
       </div>
     </div>
 
-    <!-- Step 8 -->
-    <div class="step">
-      <div class="step-header">
-        <div class="step-number"></div>
-        <h2>Install Homebrew</h2>
-      </div>
-      <p style="margin-bottom: 8px;">Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Copy and paste this command into Terminal, then press <kbd>Return</kbd>:</p>
-      <div class="code-block" style="overflow: hidden;">
-        <span id="brewinstall" style="overflow-x: auto; white-space: nowrap; min-width: 0;">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span>
-        <button class="copy-btn" onclick="copyText('brewinstall', this)" style="flex-shrink: 0;">Copy</button>
-      </div>
-      <p style="margin-top: 12px;">Follow the prompts — it may ask for your Mac password. When it finishes, you may be shown a "Next steps" section with commands to add Homebrew to your PATH. Run those commands if shown.</p>
-      <div class="tip"><strong>Tip:</strong> If you already have Homebrew, this command will just confirm it. Either way, continue to the next step.</div>
-    </div>
-
     <!-- Step 9 -->
     <div class="step">
       <div class="step-header">
@@ -378,7 +388,6 @@
       </div>
       <p style="margin-bottom: 16px;">Claude Code can connect to Figma to read and implement designs directly. This requires a Figma Personal Access Token and a one-time config file.</p>
       <ol>
-        <li>This step requires Node.js. If you don't have it, open Terminal and run: <div class="code-block" style="margin-top: 10px;"><span id="nodeinstall">brew install node</span><button class="copy-btn" onclick="copyText('nodeinstall', this)">Copy</button></div></li>
         <li>Go to <strong>figma.com</strong> → click your profile icon (top right) → <strong>Settings</strong> → <strong>Security</strong> → scroll to <strong>Personal access tokens</strong> → <strong>Generate new token</strong></li>
         <li>Give it a name (e.g. <span class="badge">claude-code</span>), set an expiration duration (note the date so you know when to renew it), and check all the permission boxes</li>
         <li>Copy the token — it will not be shown again</li>
