@@ -81,20 +81,19 @@ CONFIG:
 TITLE: Set Up SSL Certificates
 INTRO: Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to MCP servers.
 STEPS:
-- Copy the script below and paste it into Terminal, then press Return
+- Run this command first to check if the directory exists:
+  COMMAND: ls $HOME/.certs/
+- If the above shows an error, the directory doesn't exist — run the following commands one by one:
+  COMMAND: sudo mkdir -p $HOME/.certs/
+  COMMAND: sudo security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain > $HOME/.certs/all.pem
+  COMMAND: sudo security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.certs/all.pem
+  COMMAND: export GIT_SSL_CAINFO=$HOME/.certs/all.pem
+  COMMAND: export AWS_CA_BUNDLE=$HOME/.certs/all.pem
+  COMMAND: export NODE_EXTRA_CA_CERTS=$HOME/.certs/all.pem
 - To make this permanent, add this line to your ~/.zshrc file:
   - If the file doesn't exist, run this to create it and open it in TextEdit: touch ~/.zshrc && open -e ~/.zshrc
   - Add this line to the file, then save: export NODE_EXTRA_CA_CERTS=~/.certs/all.pem
 - Close and reopen Terminal to pick up the new settings
-SCRIPT:
-ls $HOME/.certs/
-# If not a directory, run the following commands one by one:
-sudo mkdir -p $HOME/.certs/
-sudo security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain > $HOME/.certs/all.pem
-sudo security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.certs/all.pem
-export GIT_SSL_CAINFO=$HOME/.certs/all.pem
-export AWS_CA_BUNDLE=$HOME/.certs/all.pem
-export NODE_EXTRA_CA_CERTS=$HOME/.certs/all.pem
 TIP: You only need to run this script once. The ~/.zshrc line ensures the certificate path is remembered every time you open a new Terminal window.
 
 ---STEP---
