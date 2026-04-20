@@ -294,10 +294,10 @@
       <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px; font-size: 0.8rem; line-height: 1.6;">
         <button class="copy-btn" onclick="copyText('certscript', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
         <span id="certscript">ls $HOME/.certs/
-## if not a directory then
-mkdir -p $HOME/.certs/
-security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain > $HOME/.certs/all.pem
-security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.certs/all.pem
+# If not a directory, run the following commands one by one:
+sudo mkdir -p $HOME/.certs/
+sudo security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain > $HOME/.certs/all.pem
+sudo security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.certs/all.pem
 export GIT_SSL_CAINFO=$HOME/.certs/all.pem
 export AWS_CA_BUNDLE=$HOME/.certs/all.pem
 export NODE_EXTRA_CA_CERTS=$HOME/.certs/all.pem</span>
