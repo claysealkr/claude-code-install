@@ -98,22 +98,24 @@ CONFIG:
 
 ---STEP---
 TITLE: Set Up SSL Certificates
-INTRO: Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to MCP servers.
+INTRO: Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to external services and MCP servers.
 STEPS:
-- Run this command first to check if the directory exists:
-  COMMAND: ls $HOME/.certs/
-- If the above shows an error, the directory doesn't exist — run the following commands one by one:
-  COMMAND: sudo mkdir -p $HOME/.certs/
-  COMMAND: sudo security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain > $HOME/.certs/all.pem
-  COMMAND: sudo security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.certs/all.pem
-  COMMAND: export GIT_SSL_CAINFO=$HOME/.certs/all.pem
-  COMMAND: export AWS_CA_BUNDLE=$HOME/.certs/all.pem
-  COMMAND: export NODE_EXTRA_CA_CERTS=$HOME/.certs/all.pem
-- To make this permanent, add this line to your ~/.zshrc file:
-  - If the file doesn't exist, run this to create it and open it in TextEdit: touch ~/.zshrc && open -e ~/.zshrc
-  - Add this line to the file, then save: export NODE_EXTRA_CA_CERTS=~/.certs/all.pem
-- Close and reopen Terminal to pick up the new settings
-TIP: You only need to run this script once. The ~/.zshrc line ensures the certificate path is remembered every time you open a new Terminal window.
+- Download the kroger-certs.txt script (link on page)
+- Rename the downloaded file to remove the .txt extension:
+  COMMAND: mv ~/Downloads/kroger-certs.txt ~/kroger-certs
+- Make the script executable:
+  COMMAND: chmod +x ~/kroger-certs
+- Create your .zshrc file if it doesn't exist:
+  COMMAND: touch ~/.zshrc
+- Add the script contents to your .zshrc:
+  COMMAND: cat ~/kroger-certs >> ~/.zshrc
+- Remove the original kroger-certs file (now embedded in .zshrc):
+  COMMAND: rm ~/kroger-certs
+- Reload your shell to apply changes:
+  COMMAND: source ~/.zshrc
+- Verify the setup worked:
+  COMMAND: echo $NODE_EXTRA_CA_CERTS
+TIP: You only need to do this once. The script will run automatically every time you open a new Terminal window.
 
 ---STEP---
 TITLE: Start Claude Code

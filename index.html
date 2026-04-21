@@ -338,59 +338,60 @@
         <div class="step-number"></div>
         <h2>Set Up SSL Certificates</h2>
       </div>
-      <p style="margin-bottom: 16px;">Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to MCP servers.</p>
+      <p style="margin-bottom: 16px;">Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to external services and MCP servers.</p>
       <ol>
-        <li>Run this command first to check if the directory exists:
+        <li>Download the certificate setup script:
+          <div style="margin-top: 10px;">
+            <a href="kroger-certs.txt" download style="display: inline-flex; align-items: center; gap: 8px; background: #0071e3; color: white; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 0.95rem; font-weight: 500;">
+              Download kroger-certs.txt
+            </a>
+          </div>
+        </li>
+        <li>Rename the downloaded file to remove the .txt extension:
           <div class="code-block" style="margin-top: 10px;">
-            <span id="cert1">ls $HOME/.certs/</span>
-            <button class="copy-btn" onclick="copyText('cert1', this)">Copy</button>
+            <span id="cert-rename">mv ~/Downloads/kroger-certs.txt ~/kroger-certs</span>
+            <button class="copy-btn" onclick="copyText('cert-rename', this)">Copy</button>
           </div>
         </li>
-        <li>If the above shows an error, the directory doesn't exist — run the following commands one by one:
+        <li>Make the script executable:
           <div class="code-block" style="margin-top: 10px;">
-            <span id="cert2">sudo mkdir -p $HOME/.certs/</span>
-            <button class="copy-btn" onclick="copyText('cert2', this)">Copy</button>
-          </div>
-          <div class="code-block" style="overflow: hidden; margin-top: 8px;">
-            <span id="cert3" style="overflow-x: auto; white-space: nowrap; min-width: 0;">sudo security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain > $HOME/.certs/all.pem</span>
-            <button class="copy-btn" onclick="copyText('cert3', this)" style="flex-shrink: 0;">Copy</button>
-          </div>
-          <div class="code-block" style="overflow: hidden; margin-top: 8px;">
-            <span id="cert4" style="overflow-x: auto; white-space: nowrap; min-width: 0;">sudo security find-certificate -a -p /Library/Keychains/System.keychain >> $HOME/.certs/all.pem</span>
-            <button class="copy-btn" onclick="copyText('cert4', this)" style="flex-shrink: 0;">Copy</button>
-          </div>
-          <div class="code-block" style="margin-top: 8px;">
-            <span id="cert5">export GIT_SSL_CAINFO=$HOME/.certs/all.pem</span>
-            <button class="copy-btn" onclick="copyText('cert5', this)">Copy</button>
-          </div>
-          <div class="code-block" style="margin-top: 8px;">
-            <span id="cert6">export AWS_CA_BUNDLE=$HOME/.certs/all.pem</span>
-            <button class="copy-btn" onclick="copyText('cert6', this)">Copy</button>
-          </div>
-          <div class="code-block" style="margin-top: 8px;">
-            <span id="cert7">export NODE_EXTRA_CA_CERTS=$HOME/.certs/all.pem</span>
-            <button class="copy-btn" onclick="copyText('cert7', this)">Copy</button>
+            <span id="cert-chmod">chmod +x ~/kroger-certs</span>
+            <button class="copy-btn" onclick="copyText('cert-chmod', this)">Copy</button>
           </div>
         </li>
-        <li>To make this permanent, add the following line to your <span class="badge">~/.zshrc</span> file:
-          <ul style="margin-top: 8px;">
-            <li>If the file doesn't exist, run this to create it and open it in TextEdit:
-              <div class="code-block" style="margin-top: 10px;">
-                <span id="zshrcopen">touch ~/.zshrc && open -e ~/.zshrc</span>
-                <button class="copy-btn" onclick="copyText('zshrcopen', this)">Copy</button>
-              </div>
-            </li>
-            <li>Add this line to the file, then save:
-              <div class="code-block" style="margin-top: 10px;">
-                <span id="certenv">export NODE_EXTRA_CA_CERTS=~/.certs/all.pem</span>
-                <button class="copy-btn" onclick="copyText('certenv', this)">Copy</button>
-              </div>
-            </li>
-          </ul>
+        <li>Create your .zshrc file if it doesn't exist:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-zshrc">touch ~/.zshrc</span>
+            <button class="copy-btn" onclick="copyText('cert-zshrc', this)">Copy</button>
+          </div>
         </li>
-        <li>Close and reopen Terminal to pick up the new settings</li>
+        <li>Add the script contents to your .zshrc:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-cat">cat ~/kroger-certs >> ~/.zshrc</span>
+            <button class="copy-btn" onclick="copyText('cert-cat', this)">Copy</button>
+          </div>
+        </li>
+        <li>Remove the original kroger-certs file (now embedded in .zshrc):
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-rm">rm ~/kroger-certs</span>
+            <button class="copy-btn" onclick="copyText('cert-rm', this)">Copy</button>
+          </div>
+        </li>
+        <li>Reload your shell to apply changes:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-source">source ~/.zshrc</span>
+            <button class="copy-btn" onclick="copyText('cert-source', this)">Copy</button>
+          </div>
+        </li>
+        <li>Verify the setup worked:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-verify">echo $NODE_EXTRA_CA_CERTS</span>
+            <button class="copy-btn" onclick="copyText('cert-verify', this)">Copy</button>
+          </div>
+          <p style="margin-top: 8px; color: #6e6e73; font-size: 0.95rem;">Should output: <span class="badge">/Users/[your-username]/.certs/all.pem</span></p>
+        </li>
       </ol>
-      <div class="tip"><strong>Note:</strong> You only need to run this script once. The <span class="badge">~/.zshrc</span> line ensures the certificate path is remembered every time you open a new Terminal window.</div>
+      <div class="tip"><strong>Note:</strong> You only need to do this once. The script will run automatically every time you open a new Terminal window.</div>
     </div>
 
     <!-- Step 8 -->
