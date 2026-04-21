@@ -340,17 +340,44 @@
       </div>
       <p style="margin-bottom: 16px;">Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to external services and MCP servers.</p>
       <ol>
-        <li>Download the certificate setup script:
-          <div style="margin-top: 10px;">
-            <a href="kroger-certs.txt" download style="display: inline-flex; align-items: center; gap: 8px; background: #0071e3; color: white; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 0.95rem; font-weight: 500;">
-              Download kroger-certs.txt
-            </a>
+        <li>Copy the script below using the Copy button:
+          <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px; margin-top: 10px; font-size: 0.85rem;">
+            <button class="copy-btn" onclick="copyText('kroger-certs-script', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
+            <span id="kroger-certs-script">#!/bin/bash
+
+function setup-certs() {
+  local cert_path
+  cert_path="$HOME/.certs/all.pem"
+  local cert_dir
+  cert_dir=$(dirname "${cert_path}")
+  [[ -d "${cert_dir}" ]] || mkdir -p "${cert_dir}"
+
+  security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain >"${cert_path}"
+  security find-certificate -a -p /Library/Keychains/System.keychain >>"${cert_path}"
+
+  export GIT_SSL_CAINFO="${cert_path}"
+  export AWS_CA_BUNDLE="${cert_path}"
+  export NODE_EXTRA_CA_CERTS="${cert_path}"
+
+  if [ ! -f "$HOME/.kroger-certs-set" ]; then
+    npm config set -g cafile "${cert_path}"
+    npm config set -g strict-ssl true
+    yarn config set cafile "${cert_path}" -g
+    yarn config set strict-ssl true -g
+  fi
+
+  touch $HOME/.kroger-certs-set
+}
+
+export NODE_OPTIONS=--use-openssl-ca
+
+setup-certs</span>
           </div>
         </li>
-        <li>Rename the downloaded file to remove the .txt extension:
+        <li>In Terminal, run the following to save the script to a file:
           <div class="code-block" style="margin-top: 10px;">
-            <span id="cert-rename">mv ~/Downloads/kroger-certs.txt ~/kroger-certs</span>
-            <button class="copy-btn" onclick="copyText('cert-rename', this)">Copy</button>
+            <span id="cert-paste">pbpaste > ~/kroger-certs</span>
+            <button class="copy-btn" onclick="copyText('cert-paste', this)">Copy</button>
           </div>
         </li>
         <li>Make the script executable:

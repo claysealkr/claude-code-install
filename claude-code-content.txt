@@ -100,16 +100,16 @@ CONFIG:
 TITLE: Kroger Network Certificates Setup
 INTRO: Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to external services and MCP servers.
 STEPS:
-- Download the kroger-certs.txt script (link on page)
-- Rename the downloaded file to remove the .txt extension:
-  COMMAND: mv ~/Downloads/kroger-certs.txt ~/kroger-certs
+- Copy the script below using the Copy button
+- In Terminal, run the following to save the script to a file:
+  COMMAND: pbpaste > ~/kroger-certs
 - Make the script executable:
   COMMAND: chmod +x ~/kroger-certs
 - Create your .zshrc file if it doesn't exist:
   COMMAND: touch ~/.zshrc
-- Add the script contents to your .zshrc:
+- Add the script to your .zshrc:
   COMMAND: cat ~/kroger-certs >> ~/.zshrc
-- Remove the original kroger-certs file (now embedded in .zshrc):
+- Remove the original file (now embedded in .zshrc):
   COMMAND: rm ~/kroger-certs
 - Reload your shell to apply changes:
   COMMAND: source ~/.zshrc
