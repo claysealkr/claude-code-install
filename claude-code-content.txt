@@ -97,7 +97,7 @@ CONFIG:
 }
 
 ---STEP---
-TITLE: Set Up SSL Certificates
+TITLE: Kroger Network Certificates Setup
 INTRO: Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to external services and MCP servers.
 STEPS:
 - Download the kroger-certs.txt script (link on page)
