@@ -32,6 +32,10 @@ COMMAND: brew --version
 COMMAND: brew install node
 - Confirm Node.js installed correctly:
 COMMAND: node --version
+- Then install Yarn:
+COMMAND: brew install yarn
+- Confirm Yarn installed correctly:
+COMMAND: yarn --version
 TIP: Both commands should print a version number. If you already have Homebrew or Node.js, the install commands will just confirm it.
 
 ---STEP---

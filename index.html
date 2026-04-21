@@ -224,6 +224,18 @@
           </div>
           <p style="margin-top: 8px; color: #6e6e73; font-size: 0.95rem;">You should see something like: <span class="badge">v22.x.x</span></p>
         </li>
+        <li>Then install Yarn:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="yarninstall">brew install yarn</span>
+            <button class="copy-btn" onclick="copyText('yarninstall', this)">Copy</button>
+          </div>
+        </li>
+        <li>Confirm Yarn installed correctly:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="yarnversion">yarn --version</span>
+            <button class="copy-btn" onclick="copyText('yarnversion', this)">Copy</button>
+          </div>
+        </li>
       </ol>
       <div class="tip"><strong>Tip:</strong> Both commands should print a version number. If you already have Homebrew or Node.js, the install commands will just confirm it.</div>
     </div>
