@@ -45,6 +45,15 @@ COMMAND: curl -fsSL https://claude.ai/install.sh | bash
 TIP: A lot of text will scroll by — that's normal. Also... it may look like it's doing nothing. Be patient. Wait until a new line appears where you can type again — it will look something like username@machine ~ % — before continuing.
 
 ---STEP---
+TITLE: Configure Claude Code
+STEPS:
+- Open Terminal if it is not already open
+- Open (or create) the file ~/.claude/settings.json in TextEdit. Make sure the file is a Plain Text Document, not a Rich Text Document (.rtf).
+TIP: The .claude folder is hidden by default in Finder. To reveal hidden folders, open Finder and press Command (⌘) + Shift + Period (.).
+- Paste in the configuration below, replacing <replace_with_your_apikey> (including the angle brackets) with the API key you'll create in the next step
+- Save the file
+
+---STEP---
 TITLE: Get an API Key
 INTRO: An API key is a unique password that lets Claude Code authenticate as you when making requests to the AI model. You'll generate one through the KrAIG UI — Kroger's internal portal for managing AI access.
 STEPS:
@@ -62,16 +71,8 @@ TIP: The key starts with sk-... — save it somewhere safe. You won't be able to
    - Click “Create Key” at the bottom
 - Your key should appear in a popup
 - Select the “Copy API Key” button and save your API Key to reference later. It will not be shown to you again.
+- Go back to the settings.json file from the previous step and replace <replace_with_your_apikey> with your key, then save.
 - If needed, you can regenerate your API key in case it gets compromised or you lose it. Search for your key alias. After clicking your key, the next page has a button to regenerate.
-
----STEP---
-TITLE: Configure Claude Code
-STEPS:
-- Open Terminal if it is not already open
-- Open (or create) the file ~/.claude/settings.json in TextEdit. Make sure the file is a Plain Text Document, not a Rich Text Document (.rtf).
-TIP: The .claude folder is hidden by default in Finder. To reveal hidden folders, open Finder and press Command (⌘) + Shift + Period (.).
-- Paste in the configuration below, replacing <replace_with_your_apikey> (including the angle brackets) with the API key you created in the previous step
-- Save the file
 CONFIG:
 {
   "apiKeyHelper": "echo <replace_with_your_apikey>",
@@ -137,6 +138,11 @@ STEPS:
 - Once logged in, run the following commands in Terminal to connect git on your Mac to your account (replace the values in quotes with your own):
 COMMAND: git config --global user.name "Your Name"
 COMMAND2: git config --global user.email "you@example.com"
+- Install the GitHub CLI — this lets Claude Code create pull requests, view issues, and interact with GitHub directly:
+COMMAND: brew install gh
+- Authenticate the GitHub CLI with your account:
+COMMAND: gh auth login
+  (Choose GitHub.com, then HTTPS, then authenticate in the browser window that opens)
 - Download GitHub Desktop for a visual interface to manage your code:
   - Go to https://desktop.github.com and click "Download for macOS"
   - Open the downloaded file and drag GitHub Desktop to your Applications folder
