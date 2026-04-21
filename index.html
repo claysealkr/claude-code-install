@@ -340,7 +340,19 @@
       </div>
       <p style="margin-bottom: 16px;">Zscaler intercepts network traffic and requires its own certificates to be trusted. Without this step, Claude Code may fail to connect to external services and MCP servers.</p>
       <ol>
-        <li>Copy the script below using the Copy button:
+        <li>Create your <span class="badge">.zshrc</span> file if it doesn't exist:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-zshrc">touch ~/.zshrc</span>
+            <button class="copy-btn" onclick="copyText('cert-zshrc', this)">Copy</button>
+          </div>
+        </li>
+        <li>Open it in TextEdit:
+          <div class="code-block" style="margin-top: 10px;">
+            <span id="cert-open">open -e ~/.zshrc</span>
+            <button class="copy-btn" onclick="copyText('cert-open', this)">Copy</button>
+          </div>
+        </li>
+        <li>Copy the script below, then paste it at the bottom of the TextEdit window and save (<kbd>Command</kbd> + <kbd>S</kbd>):
           <div class="code-block" style="display: block; white-space: pre; overflow-x: auto; position: relative; padding-right: 80px; margin-top: 10px; font-size: 0.85rem;">
             <button class="copy-btn" onclick="copyText('kroger-certs-script', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
             <span id="kroger-certs-script">#!/bin/bash
@@ -374,37 +386,7 @@ export NODE_OPTIONS=--use-openssl-ca
 setup-certs</span>
           </div>
         </li>
-        <li>In Terminal, run the following to save the script to a file:
-          <div class="code-block" style="margin-top: 10px;">
-            <span id="cert-paste">pbpaste > ~/kroger-certs</span>
-            <button class="copy-btn" onclick="copyText('cert-paste', this)">Copy</button>
-          </div>
-        </li>
-        <li>Make the script executable:
-          <div class="code-block" style="margin-top: 10px;">
-            <span id="cert-chmod">chmod +x ~/kroger-certs</span>
-            <button class="copy-btn" onclick="copyText('cert-chmod', this)">Copy</button>
-          </div>
-        </li>
-        <li>Create your .zshrc file if it doesn't exist:
-          <div class="code-block" style="margin-top: 10px;">
-            <span id="cert-zshrc">touch ~/.zshrc</span>
-            <button class="copy-btn" onclick="copyText('cert-zshrc', this)">Copy</button>
-          </div>
-        </li>
-        <li>Add the script contents to your .zshrc:
-          <div class="code-block" style="margin-top: 10px;">
-            <span id="cert-cat">cat ~/kroger-certs >> ~/.zshrc</span>
-            <button class="copy-btn" onclick="copyText('cert-cat', this)">Copy</button>
-          </div>
-        </li>
-        <li>Remove the original kroger-certs file (now embedded in .zshrc):
-          <div class="code-block" style="margin-top: 10px;">
-            <span id="cert-rm">rm ~/kroger-certs</span>
-            <button class="copy-btn" onclick="copyText('cert-rm', this)">Copy</button>
-          </div>
-        </li>
-        <li>Reload your shell to apply changes:
+        <li>Back in Terminal, reload your shell to apply changes:
           <div class="code-block" style="margin-top: 10px;">
             <span id="cert-source">source ~/.zshrc</span>
             <button class="copy-btn" onclick="copyText('cert-source', this)">Copy</button>
