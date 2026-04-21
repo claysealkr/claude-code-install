@@ -20,8 +20,8 @@ STEPS:
 NOTE: Most of the time, we use apps to interact with our computer — they're a friendly layer that makes things easier. Terminal skips that layer and lets you talk to your computer directly. It's more powerful, but also more literal: you have to tell it exactly what to do.
 
 ---STEP---
-TITLE: Install Homebrew and Node.js
-INTRO: Homebrew is a package manager for Mac — it lets you install developer tools from the command line. Node.js is also required for some optional features like the Figma integration.
+TITLE: Install Developer Tools
+INTRO: These tools form the foundation of most Mac development setups. Homebrew lets you install software from the command line. Node.js is a JavaScript runtime required for some features like the Figma integration. Yarn is a JavaScript package manager used by many projects. You'll need all three to get the most out of Claude Code, including connecting to the Figma MCP server.
 STEPS:
 - Copy and paste this command into Terminal to install Homebrew, then press Return:
 COMMAND: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
