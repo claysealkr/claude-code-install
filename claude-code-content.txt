@@ -110,6 +110,8 @@ STEPS:
 - Verify the setup worked:
   COMMAND: echo $NODE_EXTRA_CA_CERTS
 TIP: You only need to do this once. The script will run automatically every time you open a new Terminal window.
+NOTE: If you see "permission denied" when the script runs, the .certs folder may have been created with admin ownership. Fix it with this command, then run source ~/.zshrc again:
+COMMAND: sudo chown -R $USER ~/.certs
 
 ---STEP---
 TITLE: Start Claude Code

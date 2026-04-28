@@ -401,6 +401,12 @@ setup-certs</span>
         </li>
       </ol>
       <div class="tip"><strong>Note:</strong> You only need to do this once. The script will run automatically every time you open a new Terminal window.</div>
+      <div class="tip"><strong>If you see "permission denied"</strong> when the script runs, the <span class="badge">.certs</span> folder may have been created with admin ownership. Fix it with this command, then run <span class="badge">source ~/.zshrc</span> again:
+        <div class="code-block" style="margin-top: 10px;">
+          <span id="cert-chown">sudo chown -R $USER ~/.certs</span>
+          <button class="copy-btn" onclick="copyText('cert-chown', this)">Copy</button>
+        </div>
+      </div>
     </div>
 
     <!-- Step 8 -->
