@@ -12,6 +12,13 @@ Install Claude Code on Mac
 A step-by-step guide — no experience needed
 
 ---STEP---
+TITLE: Request Access Permissions
+INTRO: Before installing Claude Code, you'll need to request the appropriate access permissions.
+STEPS:
+- Submit a request in IAM for 84.51 Azure Guest User
+- For GitHub access, contact your ASP about submitting an APT request
+
+---STEP---
 TITLE: Open Terminal
 STEPS:
 - Press Command + Space to open Spotlight Search
