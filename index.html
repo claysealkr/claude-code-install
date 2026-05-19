@@ -285,32 +285,18 @@
         <div class="step-number"></div>
         <h2>Get an API Key</h2>
       </div>
-      <p style="margin-bottom: 16px;">An API key is a unique password that lets Claude Code authenticate as you when making requests to the AI model. You'll generate one through the KrAIG UI — Kroger's internal portal for managing AI access.</p>
+      <p style="margin-bottom: 16px;">An API key is a unique password that lets Claude Code authenticate as you when making requests to the AI model. You'll generate one through the KrAIG Portal — Kroger's internal portal for managing AI access.</p>
       <ol>
-        <li>Navigate to the <a href="https://ai-model-proxy.aks-ur-prd-internal.8451.cloud/ui/" target="_blank">KrAIG UI</a></li>
-        <li>Select the <strong>"+ Create New Key"</strong> button</li>
+        <li>Navigate to the <a href="https://kraig-ops-ui.aks-ur-prd-internal.8451.cloud" target="_blank">KrAIG Portal</a></li>
+        <li>When you arrive, you'll see a banner or CTA at the top of the page welcoming you to Claude Code. You can also go directly to the <a href="https://kraig-ops-ui.aks-ur-prd-internal.8451.cloud/agentic-coding" target="_blank">Claude Code page</a>.</li>
       </ol>
-      <div class="tip"><strong>Important:</strong> The key starts with <span class="badge">sk-...</span> — save it somewhere safe. You won't be able to see it again.</div>
+      <div class="tip"><strong>Note:</strong> You do <strong>not</strong> need a team for a Claude Code key. Navigate directly to the <strong>Claude Code</strong> tab in the left navigation bar.</div>
       <ol start="3">
-        <li>Fill in the following fields:
-          <ul style="margin-top: 8px;">
-            <li><strong>Owned by:</strong> "You"</li>
-            <li><strong>Team:</strong> You can skip this field, it is not required for Claude Code usage</li>
-            <li><strong>Key Name:</strong> <span class="badge">claude-code-{firstname}-{lastname}</span>, for example: <span class="badge">claude-code-josh-boldt</span></li>
-            <li><strong>Models:</strong> "All Team Models"</li>
-            <li>Click the <strong>"Optional Settings"</strong> bar and fill in:
-              <ul style="margin-top: 8px;">
-                <li><strong>Tags:</strong> <span class="badge">claude-code-wave-2</span> (type in then hit Enter on your keyboard if not selectable from the dropdown)</li>
-                <li><strong>Under "Key Lifecycle" — Expire Key:</strong> <span class="badge">365d</span> (365 days)</li>
-              </ul>
-            </li>
-            <li>Click <strong>"Create Key"</strong> at the bottom</li>
-          </ul>
-        </li>
-        <li>Your key should appear in a popup</li>
-        <li>Select the <strong>"Copy API Key"</strong> button and save your API Key to reference later. It will not be shown to you again.</li>
-        <li>If needed, you can regenerate your API key in case it gets compromised or you lose it. Search for your key alias. After clicking your key, the next page has a button to regenerate.</li>
+        <li>On the Claude Code page, you'll see three policy checkboxes. You must agree to all three before proceeding.</li>
+        <li>Once you've agreed to the policies, click the <strong>"Generate Key"</strong> button to create your personal API key.</li>
+        <li>Your new API key will appear in a copy-to-clipboard box. Copy your key, then click <strong>"Continue to Dashboard"</strong>.</li>
       </ol>
+      <div class="tip"><strong>Important:</strong> Your API key will be displayed only once. Copy it and store it somewhere safe (like a password manager) before clicking "Continue to Dashboard." If you lose it, you can use the <strong>Regenerate Key</strong> option from the dashboard.</div>
     </div>
 
     <!-- Step 6 -->

@@ -56,23 +56,15 @@ TIP: A lot of text will scroll by — that's normal. Also... it may look like it
 
 ---STEP---
 TITLE: Get an API Key
-INTRO: An API key is a unique password that lets Claude Code authenticate as you when making requests to the AI model. You'll generate one through the KrAIG UI — Kroger's internal portal for managing AI access.
+INTRO: An API key is a unique password that lets Claude Code authenticate as you when making requests to the AI model. You'll generate one through the KrAIG Portal — Kroger's internal portal for managing AI access.
 STEPS:
-- Navigate to the KrAIG UI
-- Select the “+ Create New Key” button
-TIP: The key starts with sk-... — save it somewhere safe. You won't be able to see it again.
-- Fill in the following Fields:
-   - Owned by: “You”
-   - Team: You can skip this field, it is not required for Claude Code usage
-   - Key Name: “claude-code-{firstname}-{lastname}”, for example: claude-code-josh-boldt
-   - Models: “All Team Models”
-   - Click the “Optional Settings” bar and fill in the following fields:
-      - Tags: “claude-code-wave-2” (type in then hit Enter on your keyboard if not selectable from the dropdown)
-      - Under “Key Lifecycle”: Expire Key: “365d” (365 days)
-   - Click “Create Key” at the bottom
-- Your key should appear in a popup
-- Select the “Copy API Key” button and save your API Key to reference later. It will not be shown to you again.
-- If needed, you can regenerate your API key in case it gets compromised or you lose it. Search for your key alias. After clicking your key, the next page has a button to regenerate.
+- Navigate to the KrAIG Portal: https://kraig-ops-ui.aks-ur-prd-internal.8451.cloud
+- When you arrive, you'll see a banner or CTA at the top of the page welcoming you to Claude Code. You can also go directly to the Claude Code page at: https://kraig-ops-ui.aks-ur-prd-internal.8451.cloud/agentic-coding
+NOTE: You do NOT need a team for a Claude Code key. Navigate directly to the Claude Code tab in the left navigation bar.
+- On the Claude Code page, you'll see three policy checkboxes. You must agree to all three before proceeding.
+- Once you've agreed to the policies, click the “Generate Key” button to create your personal API key.
+- Your new API key will appear in a copy-to-clipboard box. Copy your key, then click “Continue to Dashboard”.
+TIP: Your API key will be displayed only once. Copy it and store it somewhere safe (like a password manager) before clicking “Continue to Dashboard.” If you lose it, you can use the Regenerate Key option from the dashboard.
 
 ---STEP---
 TITLE: Configure Claude Code
