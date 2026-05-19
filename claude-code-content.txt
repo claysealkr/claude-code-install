@@ -11,6 +11,9 @@ Install Claude Code on Mac
 ---PAGE_SUBTITLE---
 A step-by-step guide — no experience needed
 
+---LAST_UPDATED---
+May 19, 2026
+
 ---STEP---
 TITLE: Request Access Permissions
 INTRO: Before installing Claude Code, you'll need to request the appropriate access permissions.
