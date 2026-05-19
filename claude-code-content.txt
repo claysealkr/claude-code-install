@@ -60,7 +60,6 @@ INTRO: An API key is a unique password that lets Claude Code authenticate as you
 STEPS:
 - Navigate to the KrAIG Portal: https://kraig-ops-ui.aks-ur-prd-internal.8451.cloud
 - When you arrive, you'll see a banner at the top of the page welcoming you to Claude Code. Click "Get Started." You can also go directly to the Claude Code page at: https://kraig-ops-ui.aks-ur-prd-internal.8451.cloud/agentic-coding
-NOTE: You do NOT need a team for a Claude Code key. Navigate directly to the Claude Code tab in the left navigation bar.
 - On the Claude Code page, you'll see three policy checkboxes. You must agree to all three before proceeding.
 - Once you've agreed to the policies, click the “Generate Key” button to create your personal API key.
 - Your new API key will appear in a copy-to-clipboard box. Copy your key, then click “Continue to Dashboard”.
