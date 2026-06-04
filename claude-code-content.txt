@@ -68,6 +68,7 @@ TIP: Your API key will be displayed only once. Copy it and store it somewhere sa
 
 ---STEP---
 TITLE: Configure Claude Code
+INTRO: Now you'll create a configuration file that points Claude Code to Kroger's internal AI endpoint and connects it to your API key.
 STEPS:
 - Open Terminal if it is not already open
 - Open (or create) the file ~/.claude/settings.json in TextEdit. Make sure the file is a Plain Text Document, not a Rich Text Document (.rtf).
