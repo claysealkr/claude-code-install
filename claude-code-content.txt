@@ -52,6 +52,7 @@ TIP: Both commands should print a version number. If you already have Homebrew o
 TITLE: Install Claude Code
 INTRO: Copy and paste this command into Terminal, then press Return:
 COMMAND: curl -fsSL https://claude.ai/install.sh | bash
+NOTE: This uses Anthropic's native installer — the official way to install Claude Code. (The alternative is installing via npm, but the native installer is recommended.)
 TIP: A lot of text will scroll by — that's normal. Also... it may look like it's doing nothing. Be patient. Wait until a new line appears where you can type again — it will look something like username@machine ~ % — before continuing.
 
 ---STEP---
