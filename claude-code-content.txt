@@ -12,7 +12,7 @@ Install Claude Code on Mac
 A step-by-step guide — no experience needed
 
 ---LAST_UPDATED---
-May 19, 2026
+June 4, 2026
 
 ---STEP---
 TITLE: Request Access Permissions
