@@ -12,7 +12,7 @@ Install Claude Code on Mac
 A step-by-step guide — no experience needed
 
 ---LAST_UPDATED---
-June 4, 2026
+July 30, 2026
 
 ---STEP---
 TITLE: Request Access Permissions
@@ -78,25 +78,28 @@ TIP: The .claude folder is hidden by default in Finder. To reveal hidden folders
 CONFIG:
 {
   "apiKeyHelper": "echo <replace_with_your_apikey>",
-  "autoUpdatesChannel": "stable",
+  "model": "sonnet",
   "env": {
     "ANTHROPIC_BASE_URL": "https://ai-model-proxy.aks-ur-prd-internal.8451.cloud",
     "DISABLE_AUTOUPDATER": 1,
     "DISABLE_ERROR_REPORTING": 1,
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": 1
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": 0,
+    "ENABLE_TOOL_SEARCH": "true",
+    "ANTHROPIC_MODEL": "sonnet",
+    "CLAUDE_CODE_EFFORT_LEVEL": "medium"
   },
   "permissions": {
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
       "WebSearch"
-    ]
+    ],
+    "defaultMode": "default"
   },
-  "includeCoAuthoredBy": true,
-  "companyAnnouncements": [
-    "Welcome to Claude Code for 84.51º and Kroger! Please remember not to share your API key with others.",
-    "If you encounter any issues, please email the Claude Code support DL: ClaudeCodeSupport_DL@8451.com"
-  ]
+  "sandbox": {
+    "allowUnsandboxedCommands": false
+  },
+  "autoUpdatesChannel": "stable"
 }
 
 ---STEP---

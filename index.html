@@ -180,7 +180,7 @@
   </style>
 </head>
 <body>
-  <div class="last-updated">Last updated: June 4, 2026</div>
+  <div class="last-updated">Last updated: July 30, 2026</div>
   <div class="container">
     <header>
       <h1>Install Claude Code on Mac</h1>
@@ -319,25 +319,28 @@
         <button class="copy-btn" onclick="copyText('config', this)" style="position: absolute; top: 12px; right: 12px;">Copy</button>
         <span id="config">{
   "apiKeyHelper": "echo &lt;replace_with_your_apikey&gt;",
-  "autoUpdatesChannel": "stable",
+  "model": "sonnet",
   "env": {
     "ANTHROPIC_BASE_URL": "https://ai-model-proxy.aks-ur-prd-internal.8451.cloud",
     "DISABLE_AUTOUPDATER": 1,
     "DISABLE_ERROR_REPORTING": 1,
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": 1
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": 0,
+    "ENABLE_TOOL_SEARCH": "true",
+    "ANTHROPIC_MODEL": "sonnet",
+    "CLAUDE_CODE_EFFORT_LEVEL": "medium"
   },
   "permissions": {
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
       "WebSearch"
-    ]
+    ],
+    "defaultMode": "default"
   },
-  "includeCoAuthoredBy": true,
-  "companyAnnouncements": [
-    "Welcome to Claude Code for 84.51º and Kroger! Please remember not to share your API key with others.",
-    "If you encounter any issues, please email the Claude Code support DL: ClaudeCodeSupport_DL@8451.com"
-  ]
+  "sandbox": {
+    "allowUnsandboxedCommands": false
+  },
+  "autoUpdatesChannel": "stable"
 }</span>
       </div>
       <ol start="4">
